@@ -13,8 +13,39 @@
     <title>Weather</title>
   </head>
   <body>
-    <h1>Hello world</h1>
-    <a href="" class="btn btn-primary">Search</a>
+    <div class="container">
+      <div class="weather">
+        <h1 class="weather__title">Fladungen</h1>
+        <ul class="weather__list">
+          <li class="list__item">Friday Time</li>
+          <li class="list__item">Clear</li>
+        </ul>
+        <div class="row">
+          <div class="col-md-6">
+            <img
+              src="./assets/images/partly_cloudy.png"
+              alt="partly cloudy picture"
+            />
+            12℃ | ℉
+          </div>
+          <div class="col-md-6">
+            <ul class="description__list">
+              <li class="precipitation">Precipitation: 0%</li>
+              <li class="wind">Speed wind: 2 m/c</li>
+              <li class="humidity">70%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <small>
+        <a
+          href="https://github.com/holdiana/weather-app/tree/weather/weather/src"
+          target="_blank"
+          >Open-source code, by Diana Holoborodko</a
+        >
+      </small>
+    </div>
     <script src="./src/app.js"></script>
   </body>
 </html>
