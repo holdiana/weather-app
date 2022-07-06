@@ -31,6 +31,7 @@ function displayTemperature(response) {
   let speedWind = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityName.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
@@ -38,9 +39,17 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   //використання функції формату дня та часу
   dateElement.innerHTML = formateDate(response.data.dt * 1000);
+  //зміна іконки
+  let icon = response.data.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "f48cb8e5ea750137e496c7dd7e72c4af";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+let city = "London";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
