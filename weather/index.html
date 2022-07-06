@@ -14,37 +14,48 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather">
-        <h1 class="weather__title">Fladungen</h1>
-        <ul class="weather__list">
-          <li class="list__item">Friday Time</li>
-          <li class="list__item">Clear</li>
-        </ul>
-        <div class="row">
-          <div class="col-md-6">
-            <img
-              src="./assets/images/partly_cloudy.png"
-              alt="partly cloudy picture"
-            />
-            12℃ | ℉
-          </div>
-          <div class="col-md-6">
-            <ul class="description__list">
-              <li class="precipitation">Precipitation: 0%</li>
-              <li class="wind">Speed wind: 2 m/c</li>
-              <li class="humidity">70%</li>
+      <div class="weather-wrapper">
+        <div class="weather">
+          <div class="overview">
+            <h1 class="weather__title">Fladungen</h1>
+            <ul class="weather__list">
+              <li class="list__item">Friday Time</li>
+              <li class="list__item">Clear</li>
             </ul>
           </div>
-        </div>
-      </div>
 
-      <small>
-        <a
-          href="https://github.com/holdiana/weather-app/tree/weather/weather/src"
-          target="_blank"
-          >Open-source code, by Diana Holoborodko</a
-        >
-      </small>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="clearfix weather-temperature">
+                <img
+                  src="./assets/images/partly_cloudy.png"
+                  alt="partly cloudy picture"
+                  class="float-left"
+                />
+                <div class="float-left">
+                  <strong>12</strong>
+                  <span class="units">℃ | <a href="#">℉</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul class="description__list">
+                <li class="precipitation">Precipitation: 0%</li>
+                <li class="wind">Speed wind: 2 m/c</li>
+                <li class="humidity">Humidity: 70%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <small>
+          <a
+            href="https://github.com/holdiana/weather-app/tree/weather/weather/src"
+            target="_blank"
+            >Open-source code, by Diana Holoborodko</a
+          >
+        </small>
+      </div>
     </div>
     <script src="./src/app.js"></script>
   </body>
