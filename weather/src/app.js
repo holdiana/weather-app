@@ -107,27 +107,44 @@ celsiusLink.addEventListener("click", displayCelsTemp);
 //forecast function
 //including HTML in JS
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thy", " Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2">
-                <div class="forecast__date">${day}</div>
+
+  forecast.forEach(function (forecastDay, index) {
+    let maxForecastTemp = Math.round(forecastDay.temp.max);
+    let minForecastTemp = Math.round(forecastDay.temp.min);
+    //index - кількість днів, що показуємо
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
+                <div class="forecast__date">${formateDate(forecastDay.dt)}</div>
 
                 <img
-                  src="http://openweathermap.org/img/wn/04n@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt="icon forecast"
-                  width="36px"
+                  width="42px"
                 />
                 <div class="forecast-temp">
-                  <span class="forecast-temp__max">25</span>
-                  <span class="forecast-temp__min">12</span>
+                  <span class="forecast-temp__max">${maxForecastTemp}°</span>
+                  <span class="forecast-temp__min">${minForecastTemp}°</span>
                 </div>
               </div>
             `;
+    }
+
     forecastElement.innerHTML = forecastHTML + `</div>`;
   });
+}
+
+function formateDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
