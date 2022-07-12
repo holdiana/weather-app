@@ -40,6 +40,7 @@ a {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: rgb(228, 219, 248);
 }
 .weather-temperature {
   display: flex;
@@ -67,17 +68,27 @@ a {
 .active:hover {
   text-decoration: underline;
 }
+
 .weather-forecast {
   text-align: center;
   color: #000;
   line-height: 15px;
-  padding-top: 20px;
+
+  padding: 20px 5px 0 5px;
+}
+.forecast__wrapper {
+  background-color: rgb(241, 240, 244);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px rgb(100, 96, 96);
 }
 .forecast__date {
   opacity: 0.5;
+  padding-top: 5px;
 }
 .forecast-temp {
   font-size: 13px;
+  padding-bottom: 5px;
 }
 .forecast-temp__min {
   opacity: 0.5;

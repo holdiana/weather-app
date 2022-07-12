@@ -120,8 +120,11 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         ` <div class="col-2">
-                <div class="forecast__date">${formateDate(forecastDay.dt)}</div>
-
+        <div class="forecast__wrapper"> 
+                <div class="forecast__date">${formateDates(
+                  forecastDay.dt
+                )}</div>
+ 
                 <img
                   src="http://openweathermap.org/img/wn/${
                     forecastDay.weather[0].icon
@@ -133,6 +136,7 @@ function displayForecast(response) {
                   <span class="forecast-temp__max">${maxForecastTemp}°</span>
                   <span class="forecast-temp__min">${minForecastTemp}°</span>
                 </div>
+                </div>
               </div>
             `;
     }
@@ -141,7 +145,7 @@ function displayForecast(response) {
   });
 }
 
-function formateDate(timestamp) {
+function formateDates(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
