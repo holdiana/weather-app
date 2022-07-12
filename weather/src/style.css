@@ -67,3 +67,18 @@ a {
 .active:hover {
   text-decoration: underline;
 }
+.weather-forecast {
+  text-align: center;
+  color: #000;
+  line-height: 15px;
+  padding-top: 20px;
+}
+.forecast__date {
+  opacity: 0.5;
+}
+.forecast-temp {
+  font-size: 13px;
+}
+.forecast-temp__min {
+  opacity: 0.5;
+}
